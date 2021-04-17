@@ -24,15 +24,16 @@ function update(): void {
     }
 
     const mass = Math.pow(10, Number(massExpEl.value))
-    massExpLabel.innerText = String(mass) + " kg"
+    massExpLabel.innerText = mass.toExponential(3) + " kg"
+    console.log(mass.toFixed(3))
     const gamma = Number(gammaPercentEl.value) / 100
-    gammaPercentLabel.innerText = String(gamma)
+    gammaPercentLabel.innerText = gamma.toFixed(4)
     const wtFraction = Math.pow(10, Number(wtFractionEl.value))
-    wtFractionLabel.innerText = String(wtFraction)
+    wtFractionLabel.innerText = wtFraction.toExponential(4)
     const wpFraction = Math.pow(10, Number(wpFractionEl.value))
-    wpFractionLabel.innerText = String(wpFraction)
+    wpFractionLabel.innerText = wpFraction.toExponential(4)
     const resolution = Number(resolutionEl.value)
-    resolutionLabel.innerText = String(resolution) + " px"
+    resolutionLabel.innerText = resolution.toString() + " px"
     const mode = Number(modeEl.value)
     const output = calculate_grid(mass, gamma, wpFraction, wtFraction, resolution, mode)
     const image = new ImageData(valuesToImage(output), resolution, resolution)
